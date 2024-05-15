@@ -1,7 +1,28 @@
+import React from 'react';
 import Modal from 'react-modal';
 import css from './ImageModal.module.css';
 
-function ImageModal({ isOpen, closeModal, modalContent }) {
+type Photo = {
+  alt_description: string;
+  likes: number;
+  urls: {
+    regular: string;
+  };
+  user: {
+    username: string;
+    profile_image: {
+      medium: string;
+    };
+  };
+};
+
+type Props = {
+  isOpen: boolean;
+  closeModal: () => void;
+  modalContent?: Photo;
+};
+
+const ImageModal: React.FC<Props> = ({ isOpen, closeModal, modalContent }) => {
   return (
     <div>
       <Modal
@@ -28,13 +49,13 @@ function ImageModal({ isOpen, closeModal, modalContent }) {
                 alt={modalContent.user.username}
               />
               <p>Posted by: {modalContent.user.username}</p>
-              <p>likes:{modalContent.likes}</p>
+              <p>Likes: {modalContent.likes}</p>
             </div>
           </div>
         )}
       </Modal>
     </div>
   );
-}
+};
 
 export default ImageModal;

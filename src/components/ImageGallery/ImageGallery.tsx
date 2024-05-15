@@ -1,10 +1,25 @@
-import  {ImageCard}  from '../ImageCard/ImageCard';
+import React from 'react';
+import { ImageCard } from '../ImageCard/ImageCard';
 import css from './ImageGallery.module.css';
-е
-function ImageGallery({ photos, openModal, modalContent }) {
+
+type Photo = {
+  id: string;
+  alt_description: string;
+  urls: {
+    small: string;
+  };
+};
+
+type Props = {
+  photos: Photo[];
+  openModal: () => void;
+  modalContent: (id: string) => void;
+};
+
+const ImageGallery: React.FC<Props> = ({ photos, openModal, modalContent }) => {
   return (
     <ul className={css.galleryList}>
-      {photos.map(photo => (
+      {photos.map((photo) => (
         <li className={css.galleryListItem} key={photo.id}>
           <ImageCard
             openModal={openModal}
@@ -17,6 +32,6 @@ function ImageGallery({ photos, openModal, modalContent }) {
       ))}
     </ul>
   );
-}
+};
 
 export default ImageGallery;

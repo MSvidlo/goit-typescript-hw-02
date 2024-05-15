@@ -1,9 +1,6 @@
-
 import './App.css';
-import axios from 'axios'
-import React from 'react';
-import { useState } from 'react';
-import { useEffect } from 'react';
+import axios from 'axios';
+import React, { useState, useEffect } from 'react';
 import * as Yup from "yup";
 import { Formik, Form, Field  } from 'formik';
 import SearchBar from './components/SearchBar/SearchBar';
@@ -14,39 +11,39 @@ import LoadMoreBtn from './components/LoadMoreBtn/LoadMoreBtn';
 import ErrorMessage from './ErrorMassage/ErrorMessage';
 import Loader from './components/Loader/Loader';
 
-const App = () => {
-   const [page, setPage] = useState(1);
-  const [query, setQuery] = useState('');
-  const [photos, setPhotos] = useState([]);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(false);
-   const [modalIsOpen, setIsOpen] = useState(false);
-  const [modalFilter, setModalFilter] = useState();
-  const [contentForModal] = photos.filter(photo => photo.id === modalFilter);
+const App: React.FC = () => {
+  const [page, setPage] = useState<number>(1);
+  const [query, setQuery] = useState<string>('');
+  const [photos, setPhotos] = useState<any[]>([]);
+  const [loading, setLoading] = useState<boolean>(false);
+  const [error, setError] = useState<boolean>(false);
+  const [modalIsOpen, setIsOpen] = useState<boolean>(false);
+  const [modalFilter, setModalFilter] = useState<string>();
+
+  const contentForModal = photos.find(photo => photo.id === modalFilter);
+
   useEffect(() => {
     async function searchPictures() {
       if (query === '') {
         return;
       }
-     setLoading(true); 
+      
+      setLoading(true); 
       try {
         const apiRequest = await fetchPhotos(query, page);
         setPhotos(prevState => [...prevState, ...apiRequest]);
         setError(false); 
-      }
-      catch (error) {
+      } catch (error) {
         setLoading(false);
-        setError(true)
+        setError(true);
+      } finally {
+        setLoading(false);
       }
-      finally {
-      setLoading(false);
     }
-      
-    }
-     searchPictures();
+    searchPictures();
   }, [query, page]);
 
-function onFormSubmit(searchedWord) {
+  function onFormSubmit(searchedWord: string) {
     if (query.toLowerCase() !== searchedWord.toLowerCase()) {
       setPhotos([]);
       setQuery(searchedWord);
@@ -67,9 +64,10 @@ function onFormSubmit(searchedWord) {
     setIsOpen(false);
   }
 
-  function createModalContent(id) {
+  function createModalContent(id: string) {
     setModalFilter(id);
   }
+
   return (
     <>
       <SearchBar onFormSubmit={onFormSubmit}/>
@@ -89,8 +87,9 @@ function onFormSubmit(searchedWord) {
           isOpen={modalIsOpen}
           closeModal={closeModal}
         />
-      </main>  </>
-  )
+      </main>
+    </>
+  );
 };
 
-export default App
+export default App;

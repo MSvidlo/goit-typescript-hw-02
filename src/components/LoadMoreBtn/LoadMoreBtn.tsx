@@ -1,6 +1,11 @@
+import React from 'react';
 import css from './LoadMoreBtn.module.css';
 
-function LoadMoreBtn({ handleLoadMoreBtnClick }) {
+type LoadMoreBtnProps = {
+  handleLoadMoreBtnClick: () => void;
+};
+
+const LoadMoreBtn: React.FC<LoadMoreBtnProps> = ({ handleLoadMoreBtnClick }) => {
   return (
     <div className={css.seeMoreBtnWrapper}>
       <button
@@ -12,6 +17,6 @@ function LoadMoreBtn({ handleLoadMoreBtnClick }) {
       </button>
     </div>
   );
-}
+};
 
 export default LoadMoreBtn;
