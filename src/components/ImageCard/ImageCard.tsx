@@ -1,4 +1,5 @@
- import React from 'react';
+import React from 'react';
+ import css from './ImageCard.module.css'
 type Props = {
   desc: string;
   link: string;
