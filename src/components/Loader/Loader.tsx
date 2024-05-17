@@ -2,7 +2,7 @@ import React from 'react';
 import css from './Loader.module.css';
 import { Blocks } from 'react-loader-spinner';
 
-const Loader: React.FC = () => {
+function Loader(): React.ReactElement {
   return (
     <div className={css.loaderWrapper}>
       <Blocks

@@ -22,7 +22,13 @@ type Props = {
   modalContent?: Photo;
 };
 
-const ImageModal: React.FC<Props> = ({ isOpen, closeModal, modalContent }) => {
+
+
+function ImageModal({
+  isOpen,
+  closeModal,
+  modalContent,
+}: Props): React.ReactElement {
   return (
     <div>
       <Modal
@@ -49,13 +55,13 @@ const ImageModal: React.FC<Props> = ({ isOpen, closeModal, modalContent }) => {
                 alt={modalContent.user.username}
               />
               <p>Posted by: {modalContent.user.username}</p>
-              <p>Likes: {modalContent.likes}</p>
+              <p>likes:{modalContent.likes}</p>
             </div>
           </div>
         )}
       </Modal>
     </div>
   );
-};
+}
 
 export default ImageModal;

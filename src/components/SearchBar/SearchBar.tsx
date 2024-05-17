@@ -1,23 +1,30 @@
 import React from 'react';
-import { Field, Form, Formik } from 'formik';
+import { Field, Form, Formik,FormikHelpers } from 'formik';
 import toast, { Toaster } from 'react-hot-toast';
 import css from './SearchBar.module.css';
+
+type FormValues = {
+  searchedText: string;
+};
 
 type SearchBarProps = {
   onFormSubmit: (searchedText: string) => void;
 };
-
-const SearchBar: React.FC<SearchBarProps> = ({ onFormSubmit }) => {
+function SearchBar({ onSubmit }: SearchBarProps): React.ReactElement {
   const notify = () => toast('Please type a desired word.');
 
-  const handleSubmit = (values: { searchedText: string }, actions: any) => {
+ function handleSubmit(
+    values: FormValues,
+    actions: FormikHelpers<FormValues>
+  ) {
     if (values.searchedText.trim() !== '') {
-      onFormSubmit(values.searchedText);
+      onSubmit(values.searchedText);
       actions.resetForm();
     } else {
       notify();
     }
-  };
+  }
+
 
   return (
     <header className={css.header}>

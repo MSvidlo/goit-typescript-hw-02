@@ -5,7 +5,7 @@ type LoadMoreBtnProps = {
   handleLoadMoreBtnClick: () => void;
 };
 
-const LoadMoreBtn: React.FC<LoadMoreBtnProps> = ({ handleLoadMoreBtnClick }) => {
+function LoadMoreBtn({ handleLoadMoreBtnClick }: LoadMoreBtnProps): JSX.Element  {
   return (
     <div className={css.seeMoreBtnWrapper}>
       <button

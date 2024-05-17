@@ -16,10 +16,14 @@ type Props = {
   modalContent: (id: string) => void;
 };
 
-const ImageGallery: React.FC<Props> = ({ photos, openModal, modalContent }) => {
+function ImageGallery({
+  photos,
+  openModal,
+  modalContent,
+}: Props): React.ReactElement {
   return (
     <ul className={css.galleryList}>
-      {photos.map((photo) => (
+      {photos.map((photo: Photo) => (
         <li className={css.galleryListItem} key={photo.id}>
           <ImageCard
             openModal={openModal}
@@ -32,6 +36,6 @@ const ImageGallery: React.FC<Props> = ({ photos, openModal, modalContent }) => {
       ))}
     </ul>
   );
-};
+}
 
 export default ImageGallery;
