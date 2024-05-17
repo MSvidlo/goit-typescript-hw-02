@@ -10,11 +10,24 @@ import ImageModal from './components/ImageModal/ImageModal';
 import LoadMoreBtn from './components/LoadMoreBtn/LoadMoreBtn';
 import ErrorMessage from './ErrorMassage/ErrorMessage';
 import Loader from './components/Loader/Loader';
-
+type Photo = {
+  id: string;
+  alt_description: string;
+  urls: {
+    regular: string;
+  };
+  likes: number;
+  user: {
+    username: string;
+    profile_image: {
+      medium: string;
+    };
+  };
+};
 const App: React.FC = () => {
   const [page, setPage] = useState<number>(1);
   const [query, setQuery] = useState<string>('');
-  const [photos, setPhotos] = useState<any[]>([]);
+  const [photos, setPhotos] = useState<Photo[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<boolean>(false);
   const [modalIsOpen, setIsOpen] = useState<boolean>(false);
