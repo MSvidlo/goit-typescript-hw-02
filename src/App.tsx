@@ -1,6 +1,7 @@
 import './App.css';
 import axios from 'axios';
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
+import { useEffect } from 'react';
 import * as Yup from "yup";
 import { Formik, Form, Field  } from 'formik';
 import SearchBar from './components/SearchBar/SearchBar';
@@ -23,8 +24,8 @@ type Photo = {
       medium: string;
     };
   };
-};
-const App: React.FC = () => {
+
+export default function App(){
   const [page, setPage] = useState<number>(1);
   const [query, setQuery] = useState<string>('');
   const [photos, setPhotos] = useState<Photo[]>([]);
@@ -105,4 +106,3 @@ const App: React.FC = () => {
   );
 };
 
-export default App;

@@ -10,7 +10,7 @@ type FormValues = {
 type SearchBarProps = {
   onFormSubmit: (searchedText: string) => void;
 };
-function SearchBar({ onSubmit }: SearchBarProps): React.ReactElement {
+function SearchBar({ onFormSubmit }: SearchBarProps): React.ReactElement {
   const notify = () => toast('Please type a desired word.');
 
  function handleSubmit(
@@ -18,7 +18,7 @@ function SearchBar({ onSubmit }: SearchBarProps): React.ReactElement {
     actions: FormikHelpers<FormValues>
   ) {
     if (values.searchedText.trim() !== '') {
-      onSubmit(values.searchedText);
+      onFormSubmit(values.searchedText);
       actions.resetForm();
     } else {
       notify();
@@ -28,7 +28,7 @@ function SearchBar({ onSubmit }: SearchBarProps): React.ReactElement {
 
   return (
     <header className={css.header}>
-      <Formik initialValues={{ searchedText: '' }} onSubmit={handleSubmit}>
+      <Formik initialValues={{ searchedText: '' }} onFormSubmit={handleSubmit}>
         <Form className={css.form}>
           <div className={css.fieldWrapper}>
             <Field
