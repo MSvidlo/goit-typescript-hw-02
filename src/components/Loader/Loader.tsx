@@ -11,7 +11,7 @@ function Loader(): React.ReactElement {
         color="#17a9e3"
         ariaLabel="blocks-loading"
         wrapperStyle={{}}
-        wrapperClassName="blocks-wrapper"
+        wrapperClass="blocks-wrapper"
         visible={true}
       />
     </div>

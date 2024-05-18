@@ -17,7 +17,7 @@ export function ImageCard({ desc, link, openModal, photoId, modalContent }:Props
   return (
     <div>
       <img
-        onClick={handleClick(photoId)}
+         onClick={(): void => handleClick(photoId)}
         src={link}
         alt={desc}
       />
