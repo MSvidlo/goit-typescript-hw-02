@@ -25,7 +25,7 @@ type Photo = {
     };
   };
 
-export default function App(){
+export default function App() {
   const [page, setPage] = useState<number>(1);
   const [query, setQuery] = useState<string>('');
   const [photos, setPhotos] = useState<Photo[]>([]);
