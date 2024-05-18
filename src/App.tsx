@@ -11,19 +11,20 @@ import ImageModal from './components/ImageModal/ImageModal';
 import LoadMoreBtn from './components/LoadMoreBtn/LoadMoreBtn';
 import ErrorMessage from './ErrorMassage/ErrorMessage';
 import Loader from './components/Loader/Loader';
-type Photo = {
-  id: string;
-  alt_description: string;
-  urls: {
-    regular: string;
-  };
-  likes: number;
-  user: {
-    username: string;
-    profile_image: {
-      medium: string;
-    };
-  };
+import { Photo } from './fetchPhotos';
+// type Photo = {
+//   id: string;
+//   alt_description: string;
+//   urls: {
+//     regular: string;
+//   };
+//   likes: number;
+//   user: {
+//     username: string;
+//     profile_image: {
+//       medium: string;
+//     };
+//   };
 
 export default function App() {
   const [page, setPage] = useState<number>(1);

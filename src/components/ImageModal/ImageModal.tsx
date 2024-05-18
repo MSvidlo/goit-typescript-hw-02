@@ -1,20 +1,20 @@
 import React from 'react';
 import Modal from 'react-modal';
 import css from './ImageModal.module.css';
-
-type Photo = {
-  alt_description: string;
-  likes: number;
-  urls: {
-    regular: string;
-  };
-  user: {
-    username: string;
-    profile_image: {
-      medium: string;
-    };
-  };
-};
+import { Photo } from '../../fetchPhotos'
+// type Photo = {
+//   alt_description: string;
+//   likes: number;
+//   urls: {
+//     regular: string;
+//   };
+//   user: {
+//     username: string;
+//     profile_image: {
+//       medium: string;
+//     };
+//   };
+// };
 
 type Props = {
   isOpen: boolean;

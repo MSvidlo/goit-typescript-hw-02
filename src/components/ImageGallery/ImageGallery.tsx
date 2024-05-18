@@ -1,14 +1,14 @@
 import React from 'react';
 import { ImageCard } from '../ImageCard/ImageCard';
 import css from './ImageGallery.module.css';
-
-type Photo = {
-  id: string;
-  alt_description: string;
-  urls: {
-    small: string;
-  };
-};
+import { Photo } from '../../fetchPhotos'
+// type Photo = {
+//   id: string;
+//   alt_description: string;
+//   urls: {
+//     small: string;
+//   };
+// };
 
 type Props = {
   photos: Photo[];

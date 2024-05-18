@@ -1,10 +1,12 @@
 import axios, { AxiosResponse } from 'axios';
 
-type Photo = {
+export type Photo = {
   id: string;
   alt_description: string;
   urls: {
     regular: string;
+    small: string;
+    
   };
   likes: number;
   user: {

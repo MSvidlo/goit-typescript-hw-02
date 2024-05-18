@@ -28,7 +28,7 @@ function SearchBar({ onFormSubmit }: SearchBarProps): React.ReactElement {
 
   return (
     <header className={css.header}>
-      <Formik initialValues={{ searchedText: '' }} onFormSubmit={handleSubmit}>
+      <Formik initialValues={{ searchedText: '' }}  onSubmit={handleSubmit}>
         <Form className={css.form}>
           <div className={css.fieldWrapper}>
             <Field
@@ -45,7 +45,7 @@ function SearchBar({ onFormSubmit }: SearchBarProps): React.ReactElement {
           </div>
         </Form>
       </Formik>
-      <Toaster position="top.right" />
+      <Toaster position="top-right" />
     </header>
   );
 };
